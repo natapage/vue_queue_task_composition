@@ -11,8 +11,8 @@
   </div>
 </template>
 
-<script>
-export default {
+<script setup>
+const props = defineProps({
   props: {
     queue: {
       type: Array,
@@ -21,7 +21,7 @@ export default {
       type: Number,
     },
   },
-};
+});
 </script>
 
 <style>
