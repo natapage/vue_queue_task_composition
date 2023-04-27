@@ -11,15 +11,17 @@
   </div>
 </template>
 
-<script setup>
-const props = defineProps({
-  queue: {
-    type: Array,
+<script>
+export default {
+  props: {
+    queue: {
+      type: Array,
+    },
+    checkoutNumber: {
+      type: Number,
+    },
   },
-  checkoutNumber: {
-    type: Number,
-  },
-});
+};
 </script>
 
 <style>
