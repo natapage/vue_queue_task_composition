@@ -62,7 +62,7 @@ onMounted(() => setInterval(updateQueues, 2000));
 
     <div class="checkout-zone">
       <checkoutQueue
-        v-for="(, index) in queues"
+        v-for="(checkoutQueue, index) in queues"
         :key="index + 1"
         :checkoutNumber="index + 1"
         :queue="queues[index]"
