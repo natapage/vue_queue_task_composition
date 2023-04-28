@@ -46,28 +46,26 @@ onMounted(() => setInterval(updateQueues, 2000));
 </script>
 
 <template>
-  <div id="app">
-    <h2 style="color: red" v-if="!isCorrectQuantity">
-      please enter a positive integer
-    </h2>
-    <div class="input-form">
-      <input
-        v-model="newPurchasesQuantity"
-        type="number"
-        class="input"
-        placeholder="Add purchases quantity.."
-      />
-      <button class="btn" @click="addCustomer">Create customer!</button>
-    </div>
+  <h2 style="color: red" v-if="!isCorrectQuantity">
+    please enter a positive integer
+  </h2>
+  <div class="input-form">
+    <input
+      v-model="newPurchasesQuantity"
+      type="number"
+      class="input"
+      placeholder="Add purchases quantity.."
+    />
+    <button class="btn" @click="addCustomer">Create customer!</button>
+  </div>
 
-    <div class="checkout-zone">
-      <checkoutQueue
-        v-for="(checkout, index) in queues"
-        :key="index + 1"
-        :checkoutNumber="index + 1"
-        :queue="queues[index]"
-      ></checkoutQueue>
-    </div>
+  <div class="checkout-zone">
+    <checkoutQueue
+      v-for="(checkout, index) in queues"
+      :key="index + 1"
+      :checkoutNumber="index + 1"
+      :queue="queues[index]"
+    ></checkoutQueue>
   </div>
 </template>
 
