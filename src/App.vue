@@ -1,6 +1,6 @@
 <script setup>
-import checkoutQueue from "./components/CheckoutQueue.vue";
 import { ref, onMounted, computed } from "vue";
+import checkoutQueue from "./CheckoutQueue.vue";
 
 const queues = ref([[2, 3, 5], [2, 6, 3], [1], [11, 3, 6], []]);
 let newPurchasesQuantity = ref("");
@@ -46,31 +46,33 @@ onMounted(() => setInterval(updateQueues, 2000));
 </script>
 
 <template>
-  <h2 style="color: red" v-if="!isCorrectQuantity">
-    please enter a positive integer
-  </h2>
-  <div class="input-form">
-    <input
-      v-model="newPurchasesQuantity"
-      type="number"
-      class="input"
-      placeholder="Add purchases quantity.."
-    />
-    <button class="btn" @click="addCustomer">Create customer!</button>
-  </div>
+  <div id="app">
+    <h2 style="color: red" v-if="!isCorrectQuantity">
+      please enter a positive integer
+    </h2>
+    <div class="input-form">
+      <input
+        v-model="newPurchasesQuantity"
+        type="number"
+        class="input"
+        placeholder="Add purchases quantity.."
+      />
+      <button class="btn" @click="addCustomer">Create customer!</button>
+    </div>
 
-  <div class="checkout-zone">
-    <checkoutQueue
-      v-for="(checkoutQueue, index) in queues"
-      :key="index + 1"
-      :checkoutNumber="index + 1"
-      :queue="queues[index]"
-    ></checkoutQueue>
+    <div class="checkout-zone">
+      <checkoutQueue
+        v-for="(checkout, index) in queues"
+        :key="index + 1"
+        :checkoutNumber="index + 1"
+        :queue="queues[index]"
+      ></checkoutQueue>
+    </div>
   </div>
 </template>
 
 <style scoped>
-body {
+.container {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

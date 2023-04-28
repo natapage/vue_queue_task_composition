@@ -13,13 +13,11 @@
 
 <script setup>
 const props = defineProps({
-  props: {
-    queue: {
-      type: Array,
-    },
-    checkoutNumber: {
-      type: Number,
-    },
+  queues: {
+    type: Array,
+  },
+  checkoutNumber: {
+    type: Number,
   },
 });
 </script>
